@@ -4,11 +4,11 @@ import MenuCell from 'components/menuCell';
 import { getMenu } from 'api/menu';
 import styles from './index.module.css';
 
-export default function Login() {
+export default function Menu() {
   const [menus, setMenus] = useState([]);
   useEffect(() => {
-    getMenu().then((menus) => {
-      setMenus(menus);
+    getMenu().then((resmenus) => {
+      setMenus(resmenus);
     });
   }, []);
   return (
