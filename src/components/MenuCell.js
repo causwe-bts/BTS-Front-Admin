@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import styles from './menuCell.module.css';
+import styles from './MenuCell.module.css';
 
 export default function MenuCell({ menu, className }) {
   return (
