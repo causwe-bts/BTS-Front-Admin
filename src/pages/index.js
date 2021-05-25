@@ -9,7 +9,7 @@ export default function Home() {
   useEffect(() => {
     const cookies = new Cookies();
     if (cookies.get('auth')) {
-      Router.push('/orderlist/order');
+      Router.push('/ordermanage');
     }
   }, []);
 

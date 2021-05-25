@@ -7,7 +7,7 @@ export default function Login() {
   function onSubmit(e) {
     var cookies = new Cookies();
     cookies.set('auth', 'sample_token');
-    Router.push('/orderlist/order');
+    Router.push('/ordermanage');
   }
   return (
     <div className={styles.container}>

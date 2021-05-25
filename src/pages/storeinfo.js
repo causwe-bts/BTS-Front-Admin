@@ -44,7 +44,7 @@ export default function StoreInfo() {
 
       <br />
       <div>
-        <Link href="/orderlist/order">
+        <Link href="/ordermanage">
           <button>주문관리</button>
         </Link>
         <Link href="/storeinfo">
