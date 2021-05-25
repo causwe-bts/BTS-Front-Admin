@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     const cookies = new Cookies();
     if (cookies.get('auth')) {
-      Router.push('/menu');
+      Router.push('/orderlist/order');
     }
   }, []);
 
@@ -30,7 +30,6 @@ export default function Home() {
         <title>Pizza BTS Admin Store Info</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <div>
         <Link href="/orderlist">
           <button>주문관리</button>
@@ -41,8 +40,10 @@ export default function Home() {
         <Link href="/soldlist">
           <button>판매내역</button>
         </Link>
+        <Link href="/login">
+          <button>관리자 로그인</button>
+        </Link>
       </div>
-
       {orderSet.map((order) => {
         return <OrderSet orderset={order}></OrderSet>;
       })}

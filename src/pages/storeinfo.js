@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 
 import Head from 'next/head';
 import Link from 'next/link';
-import MenuCell from 'components/MenuCell.js';
 import { getMenu } from 'api/menu';
 import styles from './storeinfo.module.css';
 

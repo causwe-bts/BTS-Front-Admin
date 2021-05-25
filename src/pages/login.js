@@ -1,13 +1,13 @@
 import Cookies from 'universal-cookie';
 import Head from 'next/head';
 import Router from 'next/router';
-import styles from './signin.module.css';
+import styles from './login.module.css';
 
 export default function Login() {
   function onSubmit(e) {
     var cookies = new Cookies();
     cookies.set('auth', 'sample_token');
-    Router.push('/menu');
+    Router.push('/orderlist/order');
   }
   return (
     <div className={styles.container}>
@@ -20,7 +20,7 @@ export default function Login() {
         <div>
           <input placeholder="id" />
           <input placeholder="password" />
-          <button onClick={onSubmit}>Sign In</button>
+          <button onClick={onSubmit}>Log In</button>
         </div>
       </div>
     </div>
