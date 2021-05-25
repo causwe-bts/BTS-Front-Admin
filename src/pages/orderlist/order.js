@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 
+import Link from 'next/link';
 import OrderSetCell from 'components/OrderSetCell.js';
 import axios from '../../../node_modules/axios/index';
 import { getOrder } from 'api/order';
+import styles from './order.module.css';
 
 export default function Orderlist() {
   const [orders, setOrders] = useState([]);
