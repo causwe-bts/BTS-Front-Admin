@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 
 import Head from 'next/head';
 import Link from 'next/link';
+import MenuCell from '../components/MenuCell';
 import { getMenu } from 'api/menu';
 import styles from './storeinfo.module.css';
 
-export default function Login() {
+export default function StoreInfo() {
   const [menus, setMenus] = useState([]);
   useEffect(() => {
     getMenu().then((resmenus) => {
@@ -43,7 +44,7 @@ export default function Login() {
 
       <br />
       <div>
-        <Link href="/orderlist">
+        <Link href="/orderlist/order">
           <button>주문관리</button>
         </Link>
         <Link href="/storeinfo">

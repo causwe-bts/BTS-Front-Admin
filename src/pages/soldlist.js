@@ -2,15 +2,17 @@ import { useEffect, useState } from 'react';
 
 import Head from 'next/head';
 import Link from 'next/link';
-import MenuCell from 'components/MenuCell.js';
-import { getMenu } from 'api/menu';
+import OrderSet from 'components/OrderSetCell';
+import { getSoldlist } from 'api/soldlist';
 import styles from './storeinfo.module.css';
 
-export default function Login() {
-  const [menus, setMenus] = useState([]);
+export default function SoldList() {
+  const [orderSet, setOrderSet] = useState([]);
+
   useEffect(() => {
-    getMenu().then((resmenus) => {
-      setMenus(resmenus);
+    getSoldlist().then((soldList) => {
+      setOrderSet(soldList);
+      console.log(soldList);
     });
   }, []);
   const store = {
@@ -21,30 +23,18 @@ export default function Login() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Pizza BTS Store Info</title>
+        <title>Pizza BTS Sold List</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
-        <div>{store.name}</div>
-        <br />
-        <div>
-          영업시간
-          <br />
-          {store.time}
-        </div>
-        <br />
-        <div>MENU</div>
-        <div>
-          {menus.map((menu) => {
-            return <MenuCell menu={menu} className={styles.menu} key={menu.name} />;
-          })}
-        </div>
-      </div>
-
+      <div>판매내역</div>
       <br />
+
+      {orderSet.map((order) => {
+        return <OrderSet orderset={order}></OrderSet>;
+      })}
       <div>
-        <Link href="/orderlist">
+        <Link href="/orderlist/order">
           <button>주문관리</button>
         </Link>
         <Link href="/storeinfo">
