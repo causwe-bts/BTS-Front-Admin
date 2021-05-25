@@ -1,7 +1,7 @@
 import Cookies from 'universal-cookie';
 import Head from 'next/head';
 import Router from 'next/router';
-import styles from './signin.module.css';
+import styles from './login.module.css';
 
 export default function Login() {
   function onSubmit(e) {
