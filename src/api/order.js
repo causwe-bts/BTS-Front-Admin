@@ -1,23 +1,91 @@
-import axios from '../../node_modules/axios/index';
-
 export const getOrder = () => {
   return new Promise((resolve, reject) => {
     resolve([
-      {
-        name: '콤비네이션 피자',
-        price: 19000,
-        description: '기본기 피자',
-      },
-      {
-        name: '하와이안 피자',
-        price: 20000,
-        description: '파인애플이 듬뿍 올라간 피자',
-      },
-      {
-        name: '페퍼로니 피자',
-        price: 22000,
-        description: '피자의 정석',
-      },
-    ]);
-  });
-};
+        {
+          orderID: '1',
+          orderer: 'james',
+          order: [
+            {
+              menu: {
+                name: 'Combination Pizza',
+                decription: 'afsdfsadfas',
+                price: 10000,
+                imgurl: 'http://image.com/cpizza',
+              },
+              qua: 2,
+            },
+            {
+              menu: {
+                name: 'hawaian Pizza',
+                decription: 'afsdfsadfas',
+                price: 12000,
+                imgurl: 'http://image.com/hpizza',
+              },
+              qua: 1,
+            },
+            {
+              menu: {
+                name: 'pepperoni Pizza',
+                decription: 'afsdfsadfas',
+                price: 11000,
+                imgurl: 'http://image.com/ppizza',
+              },
+              qua: 3,
+            },
+          ],
+          datetime: '2021.05.24 09:04',
+        },
+        {
+          orderID: '2',
+          orderer: 'tom',
+          order: [
+            {
+              menu: {
+                name: 'Combination Pizza',
+                decription: 'afsdfsadfas',
+                price: 10000,
+                imgurl: 'http://image.com/cpizza',
+              },
+              qua: 2,
+            },
+            {
+              menu: {
+                name: 'pepperoni Pizza',
+                decription: 'afsdfsadfas',
+                price: 11000,
+                imgurl: 'http://image.com/ppizza',
+              },
+              qua: 3,
+            },
+          ],
+          datetime: '2021.05.12 15:34',
+        },
+        {
+          orderID: '3',
+          orderer: 'sam',
+          order: [
+            {
+              menu: {
+                name: 'hawaian Pizza',
+                decription: 'afsdfsadfas',
+                price: 12000,
+                imgurl: 'http://image.com/hpizza',
+              },
+              qua: 1,
+            },
+            {
+              menu: {
+                name: 'pepperoni Pizza',
+                decription: 'afsdfsadfas',
+                price: 11000,
+                imgurl: 'http://image.com/ppizza',
+              },
+              qua: 3,
+            },
+          ],
+          datetime: '2021.05.10 15:15',
+        },
+      ]);
+    });
+  };
+  

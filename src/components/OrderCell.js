@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import styles from './OrderCell.module.css';
+import styles from './MenuCell.module.css';
 
 export default function OrderCell({ order, className }) {
   return (

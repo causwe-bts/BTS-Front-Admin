@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import styles from 'pages/index.module.css';
 import { useEffect, useState } from 'react';
-import OrderCell from 'components/OrderCell.js';
+import OrderSetCell from 'components/OrderSetCell.js';
 import { getOrder } from 'api/order';
+import axios from '../../../node_modules/axios/index';
 
 export default function Orderlist() {
   const [orders, setOrders] = useState([]);
@@ -12,19 +13,46 @@ export default function Orderlist() {
     });
   }, []);
   function accept(e) {
-    var cookies = new Cookies();
-    cookies.set('auth', 'sample_token');
-    Router.push('/orderlist/order');
+    axios({
+      method : "PUT",
+      url : "api/user/signin",
+      data : {
+        id : "hi",
+        password : "hi"
+      }
+    }).then(res=>{
+      console.log(res);
+    }).catch(error=>{
+      console.log(error);
+    })
   }
   function reject(e) {
-    var cookies = new Cookies();
-    cookies.set('auth', 'sample_token');
-    Router.push('/orderlist/order');
+    axios({
+      method : "PUT",
+      url : "api/user/signin",
+      data : {
+        id : "hi",
+        password : "hi"
+      }
+    }).then(res=>{
+      console.log(res);
+    }).catch(error=>{
+      console.log(error);
+    })
   }
   function finished(e) {
-    var cookies = new Cookies();
-    cookies.set('auth', 'sample_token');
-    Router.push('/orderlist/order');
+    axios({
+      method : "PUT",
+      url : "api/user/signin",
+      data : {
+        id : "hi",
+        password : "hi"
+      }
+    }).then(res=>{
+      console.log(res);
+    }).catch(error=>{
+      console.log(error);
+    })
   }
   return (
     <div className={styles.container}>
@@ -33,7 +61,7 @@ export default function Orderlist() {
           {orders.map((order) => {
             return (
               <>
-                <OrderCell order={order} className={styles.menu} key={order.name} />
+                <OrderSetCell orderset={order} className={styles.menu} key={order.orderer} />
                 <button onClick={accept}>수락</button>
                 <button onClick={reject}>거절</button>
               </>
@@ -44,7 +72,7 @@ export default function Orderlist() {
           {orders.map((order) => {
             return (
               <>
-                <OrderCell order={order} className={styles.menu} key={order.name} />
+                <OrderSetCell orderset={order} className={styles.menu} key={order.orderer} />
                 <button onClick={finished}>수령 처리</button>
               </>
           )})}
@@ -63,4 +91,3 @@ export default function Orderlist() {
     </div>
   );
 }
-
