@@ -5,6 +5,7 @@ export const getSoldlist = () => {
   return new Promise((resolve, reject) => {
     resolve([
       {
+        orderID: '1',
         orderer: 'james',
         order: [
           {
@@ -38,6 +39,7 @@ export const getSoldlist = () => {
         datetime: '2021.05.24 09:04',
       },
       {
+        orderID: '2',
         orderer: 'tom',
         order: [
           {
@@ -62,6 +64,7 @@ export const getSoldlist = () => {
         datetime: '2021.05.12 15:34',
       },
       {
+        orderID: '3',
         orderer: 'sam',
         order: [
           {
