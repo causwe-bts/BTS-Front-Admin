@@ -1,14 +1,11 @@
-import { useEffect, useState } from 'react';
-
 import Cookies from 'universal-cookie';
 import Head from 'next/head';
 import Link from 'next/link';
 import Router from 'next/router';
-import classNames from 'classnames';
 import styles from 'pages/index.module.css';
+import { useEffect } from 'react';
 
 export default function Home() {
-  const [orderSet, setOrderSet] = useState([]);
   useEffect(() => {
     const cookies = new Cookies();
     if (cookies.get('auth')) {
