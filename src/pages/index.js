@@ -20,11 +20,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Link href="/signin">
-          <button>로그인</button>
-        </Link>
-        <Link href="/signup">
-          <button>회원가입</button>
+        <Link href="/login">
+          <button>관리자 로그인</button>
         </Link>
       </div>
     </div>
