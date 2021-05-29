@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import classNames from 'classnames';
 import styles from './OrderSetCell.module.css';
 

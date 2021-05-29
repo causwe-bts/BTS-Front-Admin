@@ -1,4 +1,7 @@
+import Cookies from 'universal-cookie';
 import axios from 'axios';
+import { resolve } from '../../node_modules/uri-js/dist/es5/uri.all';
+import { token } from './user';
 
 export const getSoldlist = () => {
   return new Promise((resolve, reject) => {
