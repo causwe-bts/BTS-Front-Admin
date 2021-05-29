@@ -13,7 +13,7 @@ export const getSoldlist = () => {
       },
     })
       .then((res) => {
-        resolve(res.data.body.soldList);
+        resolve(res.data.orderList);
       })
       .catch((err) => {
         reject(err);

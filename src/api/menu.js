@@ -1,29 +1,22 @@
+import Cookies from 'universal-cookie';
 import axios from '../../node_modules/axios/index';
+import { resolve } from '../../node_modules/uri-js/dist/es5/uri.all';
+import { token } from './user';
 
 export const getMenu = () => {
   return new Promise((resolve, reject) => {
-    resolve([
-      {
-        name: '콤비네이션 피자',
-        price: 19000,
-        description: '기본기 피자',
-        imgurl:
-          'https://media.triple.guide/triple-cms/c_fill,f_auto,h_256,w_256/0e38e373-d468-4ab6-8785-41c8195f5794.jpeg',
+    axios({
+      method: 'get',
+      url: 'api/menu/menulist',
+      headers: {
+        Authorization: `Bearer ${token()}`,
       },
-      {
-        name: '하와이안 피자',
-        price: 20000,
-        description: '파인애플이 듬뿍 올라간 피자',
-        imgurl:
-          'https://media.triple.guide/triple-cms/c_fill,f_auto,h_256,w_256/0e38e373-d468-4ab6-8785-41c8195f5794.jpeg',
-      },
-      {
-        name: '페퍼로니 피자',
-        price: 22000,
-        description: '피자의 정석',
-        imgurl:
-          'https://media.triple.guide/triple-cms/c_fill,f_auto,h_256,w_256/0e38e373-d468-4ab6-8785-41c8195f5794.jpeg',
-      },
-    ]);
+    })
+      .then((res) => {
+        resolve(res.data.body.menuList);
+      })
+      .catch((err) => {
+        reject(err);
+      });
   });
 };

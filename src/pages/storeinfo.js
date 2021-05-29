@@ -4,18 +4,35 @@ import Head from 'next/head';
 import Link from 'next/link';
 import MenuCell from '../components/MenuCell';
 import { getMenu } from 'api/menu';
+import { getStoreinfo } from 'api/storeInfo';
 import styles from './storeinfo.module.css';
 
 export default function StoreInfo() {
   const [menus, setMenus] = useState([]);
+  const [time, setStoreinfo] = useState([]);
+
   useEffect(() => {
-    getMenu().then((resmenus) => {
-      setMenus(resmenus);
-    });
+    getMenu()
+      .then((resmenus) => {
+        setMenus(resmenus);
+      })
+      .catch((err) => {
+        alert(err);
+      });
   }, []);
+
+  useEffect(() => {
+    getStoreinfo()
+      .then((resstoreinfo) => {
+        setMenus(resstoreinfo);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }, []);
+
   const store = {
     name: 'BTS CAU pizza',
-    time: 'AM 09:00 ~ PM 10:00',
     location: '서울특별시 동작구 흑석로',
   };
   return (
@@ -24,14 +41,13 @@ export default function StoreInfo() {
         <title>Pizza BTS Store Info</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <div>
         <div>{store.name}</div>
         <br />
         <div>
           영업시간
           <br />
-          {store.time}
+          {(time = getStoreinfo())}
         </div>
         <br />
         <div>MENU</div>
@@ -41,7 +57,6 @@ export default function StoreInfo() {
           })}
         </div>
       </div>
-
       <br />
       <div>
         <Link href="/ordermanage">

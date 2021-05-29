@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import OrderSet from 'components/OrderSetCell';
 import { getSoldlist } from 'api/soldlist';
-import styles from './storeinfo.module.css';
+import styles from './soldlist.module.css';
 
 export default function SoldList() {
   const [orderSet, setOrderSet] = useState([]);
@@ -17,11 +17,7 @@ export default function SoldList() {
         alert(err);
       });
   }, []);
-  const store = {
-    name: 'BTS CAU pizza',
-    time: 'AM 09:00 ~ PM 10:00',
-    location: '서울특별시 동작구 흑석로',
-  };
+
   return (
     <div className={styles.container}>
       <Head>
