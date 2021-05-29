@@ -2,32 +2,27 @@ import { useEffect, useState } from 'react';
 
 import Link from 'next/link';
 import OrderSetCell from 'components/OrderSetCell.js';
-import axios from '../../../node_modules/axios/index';
-import { getOrder } from 'api/order';
-import styles from './order.module.css';
+import axios from 'axios';
+import { getOrder_Requested } from 'api/order_requested';
+import { getOrder_Ing } from 'api/order_ing';
+import { manage } from 'api/ordermanage';
+import styles from './ordermanage.module.css';
 
 export default function Orderlist() {
-  const [orders, setOrders] = useState([]);
+  const [order_requested, setOrder_Requested] = useState([]);
   useEffect(() => {
-    getOrder().then((resorders) => {
-      setOrders(resorders);
+    getOrder_Requested().then((resorders) => {
+      setOrder_Requested(resorders);
+    });
+  }, []);
+  const [order_ing, setOrder_Ing] = useState([]);
+  useEffect(() => {
+    getOrder_Ing().then((resorders) => {
+      setOrder_Ing(resorders);
     });
   }, []);
   function accept(e) {
-    axios({
-      method: 'PUT',
-      url: 'api/user/signin',
-      data: {
-        id: 'hi',
-        password: 'hi',
-      },
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    manage()
   }
   function reject(e) {
     axios({
@@ -65,7 +60,7 @@ export default function Orderlist() {
     <div className={styles.container}>
       <div>주문 요청</div>
       <div>
-        {orders.map((order) => {
+        {order_requested.map((order) => {
           return (
             <>
               <OrderSetCell orderset={order} className={styles.menu} key={order.orderer} />
@@ -77,7 +72,7 @@ export default function Orderlist() {
       </div>
       <div>조리중</div>
       <div>
-        {orders.map((order) => {
+        {order_ing.map((order) => {
           return (
             <>
               <OrderSetCell orderset={order} className={styles.menu} key={order.orderer} />
@@ -87,7 +82,7 @@ export default function Orderlist() {
         })}
       </div>
       <div>
-        <Link href="/orderlist/order">
+        <Link href="/ordermanage">
           <button>주문 관리</button>
         </Link>
         <Link href="/storeinfo">

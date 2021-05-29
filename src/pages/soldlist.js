@@ -36,7 +36,7 @@ export default function SoldList() {
         return <OrderSet orderset={order}></OrderSet>;
       })}
       <div>
-        <Link href="/orderlist/order">
+        <Link href="/ordermanage">
           <button>주문관리</button>
         </Link>
         <Link href="/storeinfo">

@@ -1,4 +1,4 @@
-export const getOrder = () => {
+export const getOrder_Requested = () => {
   return new Promise((resolve, reject) => {
     resolve([
         {
