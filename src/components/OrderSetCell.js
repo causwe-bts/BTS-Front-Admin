@@ -19,7 +19,7 @@ export default function OrderSet({ orderset, className }) {
         원
       </h6> */}
       <h6>
-        주문시각 : {orderset.datetime.split('T')[0]} {orderset.datetime.split('T')[1]}
+        주문시각 : {orderset.datetime.split('T')[0]} {orderset.datetime.split('T')[1].split('.')[0]}
       </h6>
       <br />
     </div>
