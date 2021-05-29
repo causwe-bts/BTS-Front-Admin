@@ -8,12 +8,14 @@ import styles from './storeinfo.module.css';
 
 export default function SoldList() {
   const [orderSet, setOrderSet] = useState([]);
-
   useEffect(() => {
-    getSoldlist().then((soldList) => {
-      setOrderSet(soldList);
-      console.log(soldList);
-    });
+    getSoldlist()
+      .then((soldList) => {
+        setOrderSet(soldList);
+      })
+      .catch((err) => {
+        alert(err);
+      });
   }, []);
   const store = {
     name: 'BTS CAU pizza',
