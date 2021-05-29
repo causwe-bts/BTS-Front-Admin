@@ -11,7 +11,7 @@ export default function OrderRequestedCell(props){
         })
     }
     function reject(e) {
-        manage(props._id, "Received")
+        manage(props.order._id, "Received")
         .then(()=>{
             Router.reload();
         })
