@@ -4,7 +4,6 @@ import Link from 'next/link';
 import OrderIngCell from 'components/OrderIngCell.js';
 import OrderRequestedCell from 'components/OrderRequestedCell.js';
 import { getOrderlist } from 'api/orderlist';
-import { manage } from 'api/ordermanage';
 import styles from './ordermanage.module.css';
 
 export default function Orderlist() {
@@ -20,16 +19,6 @@ export default function Orderlist() {
   
   let order_requested = orderlist.filter(orders => orders.status === "WaitingForAccept")
   let order_ing = orderlist.filter(orders => orders.status === "Cooking")
-
-  function accept(e) {
-    manage("60b1eddfc6ddd3a7f020de03", "Cooking")
-  }
-  function reject(e) {
-    manage("60b1eddfc6ddd3a7f020de03", "Received")
-  }
-  function received(e, o_id) {
-    manage("60b1eddfc6ddd3a7f020de03", "Received")
-  }
 
   return (
     <div className={styles.container}>
