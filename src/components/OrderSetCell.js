@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import classNames from 'classnames';
 import styles from './OrderSetCell.module.css';
-import Link from 'next/link';
 
 export default function OrderSet({ orderset, className }) {
   return (
