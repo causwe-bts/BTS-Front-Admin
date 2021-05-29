@@ -7,8 +7,8 @@ import { signin } from 'api/user';
 export default function Login() {
   function onSubmit(e) {
     signin("bts", "bts")
-    .then((resuser) => {
-      console.log(resuser);
+    .then((token) => {
+      
     })
     Router.push('/ordermanage');
   }
