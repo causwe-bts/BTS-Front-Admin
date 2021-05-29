@@ -4,12 +4,6 @@ import styles from './MenuCell.module.css';
 
 export default function MenuCell({ menu, className }) {
   return (
-    <Link
-      href={{
-        pathname: `/menu/${menu.id}`,
-        query: menu,
-      }}
-    >
       <div className={classNames(className, styles.container)}>
         <div>
           <img src={menu.imgURL}></img>
@@ -22,6 +16,5 @@ export default function MenuCell({ menu, className }) {
           {menu.description}
         </div>
       </div>
-    </Link>
   );
 }

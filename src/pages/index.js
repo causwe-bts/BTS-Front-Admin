@@ -9,7 +9,7 @@ export default function Home() {
   useEffect(() => {
     const cookies = new Cookies();
     if (cookies.get('auth')) {
-      Router.push('/admin/ordermanage');
+      Router.push('/ordermanage');
     }
   }, []);
 
@@ -20,7 +20,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Link href="/admin/login">
+        <Link href="/login">
           <button>관리자 로그인</button>
         </Link>
       </div>

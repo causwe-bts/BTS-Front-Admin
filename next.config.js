@@ -1,4 +1,5 @@
 module.exports = {
+  basePath: '/admin',
   async rewrites() {
     return [
       {

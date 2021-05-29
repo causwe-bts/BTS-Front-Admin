@@ -21,7 +21,7 @@ export default function Login() {
     signin(inputs.username, inputs.password)
       .then(() => {
         console.log('여기 실행돼야함');
-        Router.push('/admin/ordermanage');
+        Router.push('/ordermanage');
       })
       .catch(() => {
         alert('로그인 할 수 없습니다.');
