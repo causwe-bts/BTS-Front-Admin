@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 
 import Link from 'next/link';
-import OrderSetCell from 'components/OrderSetCell.js';
+import OrderIngCell from 'components/OrderIngCell.js';
+import OrderRequestedCell from 'components/OrderRequestedCell.js';
 import { getOrderlist } from 'api/orderlist';
 import { manage } from 'api/ordermanage';
 import styles from './ordermanage.module.css';
@@ -20,36 +21,39 @@ export default function Orderlist() {
   let order_requested = orderlist.filter(orders => orders.status === "WaitingForAccept")
   let order_ing = orderlist.filter(orders => orders.status === "Cooking")
 
-  function ordermanage(e) {
+  function accept(e) {
     manage("60b1eddfc6ddd3a7f020de03", "Cooking")
+  }
+  function reject(e) {
+    manage("60b1eddfc6ddd3a7f020de03", "Received")
+  }
+  function received(e, o_id) {
+    manage("60b1eddfc6ddd3a7f020de03", "Received")
   }
 
   return (
     <div className={styles.container}>
-      <div>주문 요청</div>
+      <div className={`text-center`}>주문 요청</div>
       <div>
         {order_requested.map((order) => {
           return (
             <>
-              <OrderSetCell orderset={order} className={styles.order} key={order.orderer} />
-              <button className={`btn btn-success`} onClick={ordermanage}>수락</button>
-              <button className={`btn btn-danger`} onClick={ordermanage}>거절</button>
+              <OrderRequestedCell order={order} />
             </>
           );
         })}
       </div>
-      <div>조리중</div>
+      <div className={`text-center`}>조리중</div>
       <div>
         {order_ing.map((order) => {
           return (
             <>
-              <OrderSetCell orderset={order} className={styles.order} key={order.orderer} />
-              <button className={`btn btn-info`} onClick={ordermanage}>수령 처리</button>
+              <OrderIngCell order={order} />
             </>
           );
         })}
       </div>
-      <div>
+      <div className={`btn-group`} className={`text-center`} role={`group`} aria-label={`Basic checkbox toggle button group`}>
         <Link href="/ordermanage">
           <button className={`btn btn-primary`}>주문 관리</button>
         </Link>

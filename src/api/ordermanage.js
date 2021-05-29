@@ -4,12 +4,12 @@ import {token} from './user';
 export const manage = (o_id, new_status) => {
   return new Promise((resolve, reject) => {
     axios({
-      method: 'POST',
+      method: 'PUT',
       url: '/api/store/ordermanage',
       headers: {
         Authorization: `Bearer ${token()}`,
       },
-      body: {
+      data: {
         order_id:o_id,
         status:new_status
       }

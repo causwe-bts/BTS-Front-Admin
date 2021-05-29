@@ -5,7 +5,7 @@ import styles from './login.module.css';
 
 export default function Login() {
   function onSubmit(e) {
-    signin("bts", "bts")
+    signin("clerk01", "q1w2e3")
     Router.push('/ordermanage');
   }
   return (
