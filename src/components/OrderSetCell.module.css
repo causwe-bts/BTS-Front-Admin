@@ -1,3 +1,19 @@
 .container {
-  background: lightblue;
+  background: wheat;
+  border-radius: 5px;
+  /* padding: 10px; */
+  /* display: flex; */
+  max-width: 500px;
+  margin: auto;
+
+}
+
+.container > div {
+  margin: 5px;
+}
+
+.container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }

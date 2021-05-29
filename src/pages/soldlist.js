@@ -25,21 +25,21 @@ export default function SoldList() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>판매내역</div>
+      <h1 className={styles.sub}>판매내역</h1>
       <br />
 
       {orderSet.map((order) => {
         return <OrderSet orderset={order}></OrderSet>;
       })}
-      <div>
+      <div className="container">
         <Link href="/ordermanage">
-          <button>주문관리</button>
+          <button className={`btn btn-secondary ${styles.input_button}`}>주문관리</button>
         </Link>
         <Link href="/storeinfo">
-          <button>가게정보</button>
+          <button className={`btn btn-secondary ${styles.input_button}`}>가게정보</button>
         </Link>
         <Link href="/soldlist">
-          <button>판매내역</button>
+          <button className={`btn btn-secondary ${styles.input_button}`}>판매내역</button>
         </Link>
       </div>
     </div>

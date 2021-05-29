@@ -9,7 +9,7 @@ import styles from './storeinfo.module.css';
 
 export default function StoreInfo() {
   const [menus, setMenus] = useState([]);
-  const [time, setStoreinfo] = useState([]);
+  const [store, setStoreinfo] = useState({});
 
   useEffect(() => {
     getMenu()
@@ -24,17 +24,13 @@ export default function StoreInfo() {
   useEffect(() => {
     getStoreinfo()
       .then((resstoreinfo) => {
-        setMenus(resstoreinfo);
+        setStoreinfo(resstoreinfo);
       })
       .catch((err) => {
         alert(err);
       });
   }, []);
 
-  const store = {
-    name: 'BTS CAU pizza',
-    location: '서울특별시 동작구 흑석로',
-  };
   return (
     <div className={styles.container}>
       <Head>
@@ -42,31 +38,33 @@ export default function StoreInfo() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <div>{store.name}</div>
+        <h1 className={styles.sub}>{store.name}</h1>
         <br />
         <div>
-          영업시간
+          <h1 className={styles.sub}>영업시간</h1>
+          <h3 className={styles.time}>{store.time}</h3>
           <br />
-          {(time = getStoreinfo())}
         </div>
         <br />
-        <div>MENU</div>
-        <div>
-          {menus.map((menu) => {
-            return <MenuCell menu={menu} className={styles.menu} key={menu.name} />;
-          })}
+        <div className={styles.container}>
+          <h1 className={styles.sub}>MENU</h1>
+          <div>
+            {menus.map((menu) => {
+              return <MenuCell menu={menu} className={styles.menu} key={menu.name} />;
+            })}
+          </div>
         </div>
       </div>
-      <br />
-      <div>
+
+      <div className="container">
         <Link href="/ordermanage">
-          <button>주문관리</button>
+          <button className={`btn btn-secondary ${styles.input_button}`}>주문관리</button>
         </Link>
         <Link href="/storeinfo">
-          <button>가게정보</button>
+          <button className={`btn btn-secondary ${styles.input_button}`}>가게정보</button>
         </Link>
         <Link href="/soldlist">
-          <button>판매내역</button>
+          <button className={`btn btn-secondary ${styles.input_button}`}>판매내역</button>
         </Link>
       </div>
     </div>
