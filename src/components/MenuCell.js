@@ -11,9 +11,16 @@ export default function MenuCell({ menu, className }) {
       }}
     >
       <div className={classNames(className, styles.container)}>
-        <div>{menu.name}</div>
-        <div>{menu.price}</div>
-        <div>{menu.description}</div>
+        <div>
+          <img src={menu.imgURL}></img>
+        </div>
+        <div>
+          <h3>{menu.name}</h3>
+          <br />
+          {menu.price}원
+          <br />
+          {menu.description}
+        </div>
       </div>
     </Link>
   );
