@@ -2,11 +2,14 @@ import Cookies from 'universal-cookie';
 import Head from 'next/head';
 import Router from 'next/router';
 import styles from './login.module.css';
+import { signin } from 'api/user';
 
 export default function Login() {
   function onSubmit(e) {
-    var cookies = new Cookies();
-    cookies.set('auth', 'sample_token');
+    signin("bts", "bts")
+    .then((resuser) => {
+      console.log(resuser);
+    })
     Router.push('/ordermanage');
   }
   return (
