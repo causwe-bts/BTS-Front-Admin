@@ -2,14 +2,14 @@ import Cookies from 'universal-cookie';
 import Head from 'next/head';
 import Link from 'next/link';
 import Router from 'next/router';
-import styles from 'pages/index.module.css';
+import styles from './index.module.css';
 import { useEffect } from 'react';
 
 export default function Home() {
   useEffect(() => {
     const cookies = new Cookies();
     if (cookies.get('auth')) {
-      Router.push('/ordermanage');
+      Router.push('/admin/ordermanage');
     }
   }, []);
 
@@ -20,7 +20,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Link href="/login">
+        <Link href="/admin/login">
           <button>관리자 로그인</button>
         </Link>
       </div>
