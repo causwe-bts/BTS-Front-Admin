@@ -13,7 +13,6 @@ export const signin = (useremail, userpassword) => {
     }).then((res) => {
       var cookies = new Cookies();
       return cookies.set('auth', res.data.body.token);
-      resolve(res.data.body.token)
     })
     .catch((err) => {
       reject(err);

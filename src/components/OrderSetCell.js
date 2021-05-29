@@ -4,12 +4,6 @@ import styles from './OrderSetCell.module.css';
 
 export default function OrderSet({ orderset, className }) {
   return (
-    <Link
-      href={{
-        pathname: `/orderset/${orderset.id}`,
-        query: orderset,
-      }}
-    >
       <div className={classNames(className, styles.container)}>
         <div>주문자 : {orderset.orderer}</div>
         {/* <img src={orderset.order[0].menu.imgurl} /> */}
@@ -28,6 +22,5 @@ export default function OrderSet({ orderset, className }) {
         <div>주문시각 : {orderset.datetime}</div>
         <br />
       </div>
-    </Link>
   );
 }
