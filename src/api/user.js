@@ -1,19 +1,26 @@
-import axios from "../../node_modules/axios/index";
+import Cookies from 'universal-cookie';
+import axios from '../../node_modules/axios/index';
 
 export const signin = (useremail, userpassword) => {
   return new Promise((resolve, reject) => {
     axios({
-      method:"POST",
-      url:"/api/store/signin",
-      data:{
-        username:useremail,
-        password:userpassword
-      }
-    }).then((res) => {
-      resolve(res.data.body.token)
+      method: 'POST',
+      url: '/api/store/signin',
+      data: {
+        username: useremail,
+        password: userpassword,
+      },
     })
-    .catch((err) => {
-      reject(err);
-    })
+      .then((res) => {
+        resolve(res.data.body.token);
+      })
+      .catch((err) => {
+        reject(err);
+      });
   });
+};
+
+export const token = () => {
+  var cookies = new Cookies();
+  return cookies.get('auth');
 };
