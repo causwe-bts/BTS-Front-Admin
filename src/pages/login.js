@@ -42,6 +42,7 @@ export default function Login() {
             onChange={onChange}
             value={inputs.password}
             placeholder="password"
+            type="password"
           />
           <button onClick={onSubmit}>Log In</button>
         </div>
